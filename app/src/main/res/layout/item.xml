@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_margin="10dp"
+            android:text="今天想要与大家一起分享的是近一个星期内开发的一个新app——干货集中营客户端，其实网上已经有许多类似的项目，代码家也在他的干货集中营中推荐了几款优秀的作品，我也借鉴了其中的一些，自己开发出一款干货集中营客户端，目前项目已经发布到github，如果你想了解整个工程的具体内容，那么你可以fork或者clone，如果你觉得我做得还可以，那么请你赐给我一个star呗！你的支持会是我努力的动力。"
+            android:maxLines="2"
+            android:id="@+id/tv_desc"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="12sp"
+            android:id="@+id/tv_who"
+            android:maxLines="1"
+            android:maxEms="6"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="10dp"
+            android:text="爱笑的小强"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="12sp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/tv_publishedAt"
+            android:text="2018-02-22T08:24:35.209Z"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:id="@+id/iv_image"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
