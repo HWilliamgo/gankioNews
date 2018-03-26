@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_weight="3"
         android:layout_width="0dp"
@@ -38,7 +40,9 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <ImageView
-        android:layout_margin="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:id="@+id/iv_image"
         android:layout_width="0dp"

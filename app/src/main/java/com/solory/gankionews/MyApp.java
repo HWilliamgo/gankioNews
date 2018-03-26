@@ -6,11 +6,6 @@ package com.solory.gankionews;
 
 import android.app.Application;
 
-import com.solory.gankionews.fragment.MyFragment;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MyApp extends Application {
     private static MyApp instance;

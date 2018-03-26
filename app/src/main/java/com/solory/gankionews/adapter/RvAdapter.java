@@ -5,11 +5,10 @@ package com.solory.gankionews.adapter;
  */
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.request.RequestOptions;
-import com.solory.gankionews.MyApp;
 import com.solory.gankionews.R;
 import com.solory.gankionews.Util.TimeParse;
 import com.solory.gankionews.WebViewActivity;
@@ -48,7 +46,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.item, parent, false);
+        View itemView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.item_news, parent, false);
         return new MyViewHolder(itemView);
     }
 
@@ -58,15 +56,16 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
             return;
         }
         final String url=resultsBeanList.get(position).getUrl();
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(fragment.getActivity(), WebViewActivity.class);
-                intent.putExtra("web_view_url",url);
-                fragment.getActivity().startActivity(intent);
-            }
-        });
-
+        if (!TextUtils.isEmpty(url)){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(fragment.getActivity(), WebViewActivity.class);
+                    intent.putExtra("web_view_url",url);
+                    fragment.getActivity().startActivity(intent);
+                }
+            });
+        }
         holder.tvDesc.setText(resultsBeanList.get(position).getDesc());
         holder.tvPublishedAt.setText(timeParse.getTime(resultsBeanList.get(position).getPublishedAt()));
         Object who = resultsBeanList.get(position).getWho();

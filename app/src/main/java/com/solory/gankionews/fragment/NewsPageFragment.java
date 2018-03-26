@@ -2,12 +2,10 @@ package com.solory.gankionews.fragment;
 
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +14,12 @@ import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.solory.gankionews.IContract.IGetNewsContract;
-import com.solory.gankionews.MyApp;
 import com.solory.gankionews.Presenter.GetNewsPresenter;
 import com.solory.gankionews.R;
 import com.solory.gankionews.adapter.RvAdapter;
 import com.solory.gankionews.net.NewsResponse;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import butterknife.BindView;
@@ -33,9 +29,10 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyFragment extends Fragment implements IGetNewsContract.View {
+public class NewsPageFragment extends Fragment implements IGetNewsContract.View {
 
     private static final String typeTag = "tag";
+    //当前翻到的页数
     private int pageCount=0;
     @BindView(R.id.recycler_view)
     XRecyclerView recyclerView;
@@ -107,7 +104,7 @@ public class MyFragment extends Fragment implements IGetNewsContract.View {
             }
         });
     }
-    public MyFragment() {
+    public NewsPageFragment() {
         // Required empty public constructor
     }
 
@@ -116,7 +113,7 @@ public class MyFragment extends Fragment implements IGetNewsContract.View {
         Log.d("****** ","重新加载了"+type);
         Bundle args = new Bundle();
         args.putString(typeTag, type);
-        MyFragment fragment = new MyFragment();
+        NewsPageFragment fragment = new NewsPageFragment();
         fragment.setArguments(args);
 
         return fragment;
@@ -127,8 +124,7 @@ public class MyFragment extends Fragment implements IGetNewsContract.View {
     @Override
     public void onGetSucceed(NewsResponse newsResponse) {
         list.addAll(newsResponse.getResults());
-        recyclerView.notifyItemInserted(list,10*pageCount-9);
-        //rvAdapter.notifyItemRangeInserted(10*pageCount-9,pageCount*10);
+        recyclerView.notifyItemInserted(list,10*pageCount);
         
         //recyclerView加载完成
         recyclerView.loadMoreComplete();

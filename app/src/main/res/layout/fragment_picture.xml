@@ -2,12 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.solory.gankionews.fragment.NewsPageFragment">
+    tools:context="com.solory.gankionews.fragment.PictureFragment">
     <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/rv_beautyPic"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </com.jcodecraeer.xrecyclerview.XRecyclerView>
-
+        android:layout_height="wrap_content" />
 </FrameLayout>
